@@ -8,4 +8,9 @@ class Game extends Eloquent {
 	{
 		return $this->belongsToMany('Player');
 	}
+
+	public function deals()
+	{
+		return $this->hasMany('Deal');
+	}
 }

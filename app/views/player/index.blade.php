@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('body')
-	<h1>Player Pool</h1>
+	<h1>Player Pool {{HTML::linkRoute('player.create', 'Add New', null, ['class' => 'btn btn-primary pull-right'])}}</h1>
 
 	<table class="table table-hover">
 		<thead>

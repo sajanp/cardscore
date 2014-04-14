@@ -21,8 +21,9 @@ class DealController extends \BaseController {
 	public function create($gameId)
 	{
 		$game = Game::find($gameId);
+		$trumps = Trump::all();
 
-		return View::make('deal.create', compact('game'));
+		return View::make('deal.create', compact('game', 'trumps'));
 	}
 
 
@@ -31,9 +32,39 @@ class DealController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store($gameId)
 	{
-		//
+		$game = Game::find($gameId);
+		$deal = new Deal;
+		$deal->trump_id = Input::get('trump_id');
+		$deal->point_value = Input::get('point_value');
+		$deal->acheived = Input::get('acheived');
+
+		$game->deals()->save($deal);
+
+		$deal->players()->attach(Input::get('caller_id'), ['caller' => true]);
+
+		$partners = Input::get('partners');
+
+		if (($key = array_search(Input::get('caller_id'), $partners)) !== false) {
+			unset($partners[$key]);
+		}
+
+		foreach ($partners as $partner)
+		{
+			$deal->players()->attach($partner, ['partner' => true]);
+		}
+
+		$otherPlayers = array_diff($game->players->modelKeys(), $partners);
+
+		if (($key = array_search(Input::get('caller_id'), $otherPlayers)) !== false) {
+			unset($otherPlayers[$key]);
+		}
+
+		foreach ($otherPlayers as $player)
+		{
+			$deal->players()->attach($player);
+		}
 	}
 
 
