@@ -14,4 +14,9 @@ class Deal extends Eloquent {
 		return $this->belongsTo('Trump');
 	}
 
+	public function game()
+	{
+		return $this->belongsTo('Game');
+	}
+
 }

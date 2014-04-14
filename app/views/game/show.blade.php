@@ -56,10 +56,7 @@
 			<pre></pre>
 				@foreach($game->players->all() as $player)
 					<li>
-					{{$player->name}}
-					@foreach($player->deals as $deal)
-						<?php dd($deal); ?>
-					@endforeach
+					{{$player->name}} - {{$player->deals()->wherePivot('partner', '=', true)->orWherePivot('caller', '=', true)->wherePivot('player_id', '=', $player->id)->where('acheived', '=', true)->where('game_id', '=', $game->id)->sum('point_value') + $player->deals()->wherePivot('partner', '=', false)->wherePivot('caller', '=', false)->wherePivot('player_id', '=', $player->id)->where('acheived', '=', false)->where('game_id', '=', $game->id)->sum('point_value')}}
 					</li>
 				@endforeach
 			</ul>
