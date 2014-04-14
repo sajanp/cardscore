@@ -9,7 +9,9 @@ class MeetingController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$meetings = Meeting::with('players')->get();
+
+		return View::make('meeting.index', compact('meetings'));
 	}
 
 
@@ -33,7 +35,9 @@ class MeetingController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$meeting = Meeting::create([]);
+
+		$meeting->players()->sync(Input::get('players'));
 	}
 
 
