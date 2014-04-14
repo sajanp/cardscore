@@ -9,7 +9,7 @@ class MeetingController extends \BaseController {
 	 */
 	public function index()
 	{
-		$meetings = Meeting::with('players')->get();
+		$meetings = Meeting::with('players')->orderBy('created_at', 'desc')->get();
 
 		return View::make('meeting.index', compact('meetings'));
 	}
@@ -38,55 +38,7 @@ class MeetingController extends \BaseController {
 		$meeting = Meeting::create([]);
 
 		$meeting->players()->sync(Input::get('players'));
+
+		return Redirect::route('meeting.index');
 	}
-
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
-
 }
