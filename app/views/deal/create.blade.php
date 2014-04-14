@@ -19,5 +19,20 @@
 				</div>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<h2>Partners</h2>
+				@foreach($game->players as $player)
+					<div class="form-group">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" name="partners[]" value="{{$player->id}}">
+								{{$player->name}}
+							</label>
+						</div>
+					</div>
+				@endforeach
+			</div>
+		</div>
 	{{Form::close()}}
 @stop
