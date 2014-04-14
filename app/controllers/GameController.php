@@ -41,4 +41,18 @@ class GameController extends \BaseController {
 
 		return Redirect::route('game.deal.create', $game->id)->withSuccessMessage('Your game has been started.');
 	}
+
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		$game = Game::find($id);
+
+		return View::make('game.show', compact('game'));
+	}
 }

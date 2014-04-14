@@ -65,6 +65,8 @@ class DealController extends \BaseController {
 		{
 			$deal->players()->attach($player);
 		}
+
+		return Redirect::route('game.show', $game->id);
 	}
 
 
