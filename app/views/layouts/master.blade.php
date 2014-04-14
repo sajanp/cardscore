@@ -7,7 +7,7 @@
 		<meta name=viewport content="width=device-width, initial-scale=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap CSS -->
-		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet" media="screen">
 	</head>
 	<body>
 		<div class="container">
@@ -19,12 +19,11 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">Rook Scoring System</a>
+					{{HTML::linkRoute('home', 'Rook Scoring System', null, ['class' => 'navbar-brand'])}}
 				</div>
 			
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#">Home</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Players <b class="caret"></b></a>
 							<ul class="dropdown-menu">
@@ -33,10 +32,10 @@
 							</ul>
 						</li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Meetings <b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Games <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li>{{HTML::linkRoute('meeting.create', 'Start New')}}</li>
-								<li>{{HTML::linkRoute('meeting.index', 'History')}}</li>
+								<li>{{HTML::linkRoute('game.create', 'Start New')}}</li>
+								<li>{{HTML::linkRoute('game.index', 'History')}}</li>
 							</ul>
 						</li>
 					</ul>
