@@ -35,7 +35,8 @@ class DealController extends \BaseController {
 	public function store($gameId)
 	{
 		$rules = [
-			'point_value' => 'required|integer'
+			'point_value' => 'required|integer',
+			'acheived' => 'required'
 		];
 
 		$validator = Validator::make(Input::all(), $rules);
