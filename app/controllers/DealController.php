@@ -34,6 +34,17 @@ class DealController extends \BaseController {
 	 */
 	public function store($gameId)
 	{
+		$rules = [
+			'point_value' => 'required|integer'
+		];
+
+		$validator = Validator::make(Input::all(), $rules);
+
+		if ($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator->messages())->withInput();
+		}
+
 		$game = Game::find($gameId);
 		$deal = new Deal;
 		$deal->trump_id = Input::get('trump_id');
