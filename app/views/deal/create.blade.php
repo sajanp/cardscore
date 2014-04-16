@@ -3,6 +3,10 @@
 @section('body')
 	<h1>New Deal In Game #{{$game->id}}</h1>
 
+	@foreach($errors->all() as $error)
+		<p class="alert alert-danger">{{$error}}</p>
+	@endforeach
+
 	<div class="row">
 		<div class="col-md-9">
 			<h3>The Call</h3>
