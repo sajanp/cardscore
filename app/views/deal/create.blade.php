@@ -64,10 +64,10 @@
 				</div>
 			</div>
 
-					
+			<hr>
 
 			<div class="form-group">
-				{{Form::submit('Post Deal', ['class' => 'btn btn-success btn-lg pull-right'])}}
+				{{Form::submit('Post Deal', ['class' => 'btn btn-success btn-lg'])}}
 			</div>
 
 			{{Form::close()}}
