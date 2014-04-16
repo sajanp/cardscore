@@ -1,9 +1,9 @@
 @extends('layouts.master')
 
 @section('body')
-	<h1>Game #{{$game->id}} <small>{{$game->created_at}}</small></h1>
+	<h1>Game #{{$game->id}} <small>{{$game->updated_at->diffForHumans()}}</small> {{HTML::linkRoute('game.deal.create', 'Deal Into This Game', $game->id, ['class' => 'pull-right btn btn-primary pull-right'])}}</h1>
 
-	<p>{{HTML::linkRoute('game.deal.create', 'Deal Into This Game', $game->id, ['class' => 'pull-right btn btn-primary btn-lg btn-block'])}}</p>
+	<p></p>
 
 	<div class="row">
 		<div class="col-md-9">
@@ -13,7 +13,6 @@
 				<table class="table table-hover table-bordered">
 					<thead>
 						<tr>
-							<th>ID</th>
 							<th>Time</th>
 							<th>Trump</th>
 							<th>Points</th>
@@ -25,15 +24,14 @@
 					<tbody>
 						@foreach($game->deals()->orderBy('created_at', 'desc')->get() as $deal)
 							<tr>
-								<td>{{$deal->id}}</td>
 								<td>{{$deal->created_at->diffForHumans()}}</td>
 								<td>{{$deal->trump->name}}</td>
 								<td>{{$deal->point_value}}</td>
-								<td>{{$deal->players()->where('caller', true)->first()->name}}</td>
+								<td>{{$deal->scores()->where('caller', true)->first()->player->name}}</td>
 								<td>
 									<p>
-										@foreach($deal->players()->where('partner', true)->get() as $partner)
-											{{$partner->name}} <br>
+										@foreach($deal->scores()->where('partner', true)->get() as $partner)
+											{{$partner->player->name}} <br>
 										@endforeach
 									</p>
 								</td>
@@ -53,10 +51,9 @@
 		<div class="col-md-3">
 			<h2>Players</h2>
 			<ul>
-			<pre></pre>
 				@foreach($game->players->all() as $player)
 					<li>
-					{{$player->name}} - {{$player->deals()->wherePivot('partner', '=', true)->orWherePivot('caller', '=', true)->wherePivot('player_id', '=', $player->id)->where('acheived', '=', true)->where('game_id', '=', $game->id)->sum('point_value') + $player->deals()->wherePivot('partner', '=', false)->wherePivot('caller', '=', false)->wherePivot('player_id', '=', $player->id)->where('acheived', '=', false)->where('game_id', '=', $game->id)->sum('point_value')}}
+						{{$player->name}} - {{$player->scores()->where('game_id', $game->id)->sum('amount')}}
 					</li>
 				@endforeach
 			</ul>

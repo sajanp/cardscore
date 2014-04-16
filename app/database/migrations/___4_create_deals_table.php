@@ -20,9 +20,6 @@ class CreateDealsTable extends Migration {
 			$table->integer('point_value');
 			$table->boolean('acheived');
 			$table->timestamps();
-
-			$table->foreign('game_id')->references('id')->on('games');
-			$table->foreign('trump_id')->references('id')->on('trumps');
 		});
 	}
 

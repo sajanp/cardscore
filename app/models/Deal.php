@@ -3,11 +3,7 @@
 class Deal extends Eloquent {
 
 	protected $guarded = ['id', 'created_at', 'updated_at'];
-
-	public function players()
-	{
-		return $this->belongsToMany('Player')->withPivot('caller', 'partner');
-	}
+	protected $touches = ['game'];
 
 	public function trump()
 	{
@@ -17,6 +13,11 @@ class Deal extends Eloquent {
 	public function game()
 	{
 		return $this->belongsTo('Game');
+	}
+
+	public function scores()
+	{
+		return $this->hasMany('Score');
 	}
 
 }

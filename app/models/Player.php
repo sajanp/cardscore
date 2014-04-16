@@ -4,8 +4,14 @@ class Player extends Eloquent {
 
 	protected $guarded = ['id', 'updated_at', 'created_at'];
 
-	public function deals()
+	public function games()
 	{
-		return $this->belongsToMany('Deal')->withPivot('caller', 'partner');
+		return $this->belongsToMany('Game');
 	}
+
+	public function scores()
+	{
+		return $this->hasMany('Score');
+	}
+
 }

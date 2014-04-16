@@ -24,13 +24,7 @@
 			
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Games <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li>{{HTML::linkRoute('game.create', 'Start New')}}</li>
-								<li>{{HTML::linkRoute('game.index', 'History')}}</li>
-							</ul>
-						</li>
+						<li>{{HTML::linkRoute('game.index', 'Games')}}</li>
 						<li>{{HTML::linkRoute('player.index', 'Players')}}</li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
@@ -43,6 +37,8 @@
 		<script src="//code.jquery.com/jquery.js"></script>
 		<!-- Bootstrap JavaScript -->
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+		@yield('footer-scripts')
 	</body>
 </html>
 

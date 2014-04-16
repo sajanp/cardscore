@@ -13,4 +13,9 @@ class Game extends Eloquent {
 	{
 		return $this->hasMany('Deal');
 	}
+
+	public function scores()
+	{
+		return $this->hasMany('Score');
+	}
 }

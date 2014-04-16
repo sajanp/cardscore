@@ -42,7 +42,7 @@ class DealController extends \BaseController {
 
 		$game->deals()->save($deal);
 
-		$deal->players()->attach(Input::get('caller_id'), ['caller' => true]);
+		$deal->scores()->save(new Score(['game_id' => $gameId, 'player_id' => Input::get('caller_id'), 'amount' => ($deal->acheived ? $deal->point_value : 0), 'caller' => true]));
 
 		$partners = Input::get('partners');
 
@@ -52,7 +52,7 @@ class DealController extends \BaseController {
 
 		foreach ($partners as $partner)
 		{
-			$deal->players()->attach($partner, ['partner' => true]);
+			$deal->scores()->save(new Score(['game_id' => $gameId, 'player_id' => $partner, 'amount' => ($deal->acheived ? $deal->point_value : 0), 'partner' => true]));
 		}
 
 		$otherPlayers = array_diff($game->players->modelKeys(), $partners);
@@ -63,10 +63,10 @@ class DealController extends \BaseController {
 
 		foreach ($otherPlayers as $player)
 		{
-			$deal->players()->attach($player);
+			$deal->scores()->save(new Score(['game_id' => $gameId, 'player_id' => $player, 'amount' => ($deal->acheived ? 0 : $deal->point_value)]));
 		}
 
-		return Redirect::route('game.show', $game->id);
+		return Redirect::route('game.show', $game->id)->withSuccessMessage('Deal posted.');
 	}
 
 
