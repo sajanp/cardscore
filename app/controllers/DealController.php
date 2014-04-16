@@ -43,7 +43,7 @@ class DealController extends \BaseController {
 
 		if ($validator->fails())
 		{
-			return Redirect::back()->withErrors($validator->messages())->withInput();
+			return Redirect::route('game.deal.create', $gameId)->withErrors($validator->messages())->withInput();
 		}
 
 		$game = Game::find($gameId);
