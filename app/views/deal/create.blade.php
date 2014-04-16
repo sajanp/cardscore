@@ -87,6 +87,10 @@
 
 @section('footer-scripts')
 	<script>
+		$('#new-deal-form').submit(function(){
+		    $(this).children('input[type=submit]').prop('disabled', true);
+		});
+
 		$('#new-deal-form').bind("keyup keypress", function(e) {
 			var code = e.keyCode || e.which; 
 			if (code  == 13) {               
