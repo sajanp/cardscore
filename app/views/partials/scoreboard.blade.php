@@ -7,10 +7,12 @@ foreach ($game->players->all() as $player) {
 
 arsort($scores);
 ?>
-<ul>
+
+<table class="table table-condensed table-hover table-bordered">
 	@foreach($scores as $player => $score)
-		<li>
-			{{$player}} - {{$score}}
-		</li>
+		<tr>
+			<td>{{$player}}</td>
+			<td>{{$score}}</td>
+		</tr>
 	@endforeach
-</ul>
+</table>

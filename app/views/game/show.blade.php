@@ -6,7 +6,7 @@
 	<p></p>
 
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-9">
 			<h2>Deal History</h2>
 
 			<div class="table-responsive">
@@ -31,7 +31,7 @@
 								<td>
 									<p>
 										@foreach($deal->scores()->where('partner', true)->get() as $partner)
-											{{$partner->player->name}} <br>
+											{{$partner->player->name}}
 										@endforeach
 									</p>
 								</td>
@@ -48,7 +48,7 @@
 				</table>
 			</div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			@include('partials.scoreboard')
 		</div>
 	</div>
