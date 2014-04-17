@@ -11,19 +11,19 @@ class PlayerTableSeeder extends Seeder {
 	{
 
 		Player::create([
-			'name' => 'Himansu Parikh',
+			'name' => 'Akshay Mahadevia ',
 		]);
 
 		Player::create([
-			'name' => 'Navin Dadhaniya',
+			'name' => 'Balvant Patel',
 		]);
 
 		Player::create([
-			'name' => 'Rasila Dadhaniya',
+			'name' => 'Deepak Shah',
 		]);
 
 		Player::create([
-			'name' => 'Punita Parikh',
+			'name' => 'Geeta Mahadevia',
 		]);
 
 		Player::create([
@@ -31,16 +31,41 @@ class PlayerTableSeeder extends Seeder {
 		]);
 
 		Player::create([
+			'name' => 'Himansu Parikh',
+		]);
+
+		Player::create([
+			'name' => 'Kusum Patel (Bettendorf)',
+		]);
+
+		Player::create([
+			'name' => 'Kusum Patel (Galesburg)',
+		]);
+
+		Player::create([
+			'name' => 'Lalit Patel',
+		]);
+
+		Player::create([
+			'name' => 'Navin Dadhaniya',
+		]);
+
+		Player::create([
+			'name' => 'Neela Shah',
+		]);
+
+		Player::create([
+			'name' => 'Punita Parikh',
+		]);
+
+		Player::create([
+			'name' => 'Rasila Dadhaniya',
+		]);
+
+		Player::create([
 			'name' => 'Suddha Patel',
 		]);
-
-		Player::create([
-			'name' => 'Neela Patel',
-		]);
-
-		Player::create([
-			'name' => 'Deepak Patel',
-		]);
+	
 	
 	}
 
