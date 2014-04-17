@@ -7,6 +7,7 @@
 		<table class="table table-hover table-bordered">
 			<thead>
 				<tr>
+					<td>#</td>
 					<th>Started</th>
 					<th>Player Count</th>
 					<th>Deal Count</th>
@@ -29,6 +30,7 @@
 					$winners = array_keys($scores, $highScore);
 				?>
 					<tr>
+						<td>{{$game->id}}</td>
 						<td>{{$game->created_at->toDayDateTimeString()}}</td>
 						<td>{{$game->players->count()}}</td>
 						<td>{{$game->deals->count()}}</td>
