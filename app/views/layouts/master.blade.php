@@ -32,7 +32,7 @@
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</nav>
-			<p class="alert alert-info">Feel free to play around and test this.  I will reset the data on Friday so you can start tracking your real data.  Don't break it!</p>
+			<p class="alert alert-info">Feel free to play around and test this.  I will reset the data on Friday so you can start tracking your real data.  If things feel a little slow, there's still a couple things I need to do for optimization.  I'll do them on Thursday.</p>
 			@include('partials.alerts')
 			@yield('body')
 		</div>
