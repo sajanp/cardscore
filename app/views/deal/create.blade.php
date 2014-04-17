@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('body')
-	<h1>New Deal In Game #{{$game->id}} {{HTML::linkRoute('game.show', 'Back To Game History', $game->id, ['class' => 'pull-right btn btn btn-danger'])}}</h1>
+	<h1>New Deal In Game #{{$game->id}} {{HTML::linkRoute('game.show', 'Back To Game Summary', $game->id, ['class' => 'pull-right btn btn btn-danger'])}}</h1>
 
 	@foreach($errors->all() as $error)
 		<p class="alert alert-danger">{{$error}}</p>
