@@ -7,10 +7,24 @@
 		<meta name=viewport content="width=device-width, initial-scale=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap CSS -->
-		<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/spacelab/bootstrap.min.css" rel="stylesheet" media="screen">
+		<style>
+			body {
+				font-size: 18px;
+				margin: 0 25px;
+			}
+
+			.lead {
+				font-size: 24px;
+			}
+
+			table a, .table a {
+				text-decoration: none;
+			}
+		</style>
 	</head>
 	<body>
-		<div class="container">
+		<div class="none">
 			<nav class="navbar navbar-default navbar-static-top" role="navigation">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -29,7 +43,7 @@
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</nav>
-			<p class="alert alert-info">Feel free to play around, test, and tell me when you've broke things.  I will reset the data on Friday so you can start tracking your real data.</p>
+			<p class="alert alert-info">Feel free to play around and test this.  I will reset the data on Friday so you can start tracking your real data.  Don't break it!</p>
 			@include('partials.alerts')
 			@yield('body')
 		</div>

@@ -6,11 +6,11 @@
 	<p></p>
 
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col-md-8">
 			<h2>Deal History</h2>
 
 			<div class="table-responsive">
-				<table class="table table-hover table-bordered">
+				<table class="table table-hover table-bordered table-condensed">
 					<thead>
 						<tr>
 							<th>Time</th>
@@ -48,7 +48,7 @@
 				</table>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-4">
 			@include('partials.scoreboard')
 		</div>
 	</div>

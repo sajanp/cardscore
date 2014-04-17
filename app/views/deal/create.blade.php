@@ -8,7 +8,7 @@
 	@endforeach
 
 	<div class="row">
-		<div class="col-md-9">
+		<div class="col-md-8">
 			<h2>The Call</h2>
 			{{Form::open(['route' => ['game.deal.store', $game->id], 'id' => 'new-deal-form'])}}
 
@@ -76,7 +76,7 @@
 
 			{{Form::close()}}
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-4">
 			@include('partials.scoreboard')
 		</div>
 	</div>
