@@ -58,6 +58,11 @@ class DealController extends \BaseController {
 
 		$partners = Input::get('partners');
 
+		if (!is_array($partners))
+		{
+			$partners = [];
+		}
+
 		if (($key = array_search(Input::get('caller_id'), $partners)) !== false) {
 			unset($partners[$key]);
 		}
