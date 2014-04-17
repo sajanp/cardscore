@@ -31,7 +31,7 @@
 								<td>
 									<p>
 										@foreach($deal->scores()->where('partner', true)->get() as $partner)
-											{{$partner->player->name}}
+											{{$partner->player->name}} <br>
 										@endforeach
 									</p>
 								</td>
