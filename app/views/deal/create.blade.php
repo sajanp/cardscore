@@ -9,7 +9,7 @@
 
 	<div class="row">
 		<div class="col-md-9">
-			<h3>The Call</h3>
+			<h2>The Call</h2>
 			{{Form::open(['route' => ['game.deal.store', $game->id], 'id' => 'new-deal-form'])}}
 
 			<div class="row">
@@ -37,7 +37,7 @@
 
 			<div class="row">
 				<div class="col-md-6">
-					<h3>The Partners</h3>
+					<h2>The Partners</h2>
 					<div class="form-group">
 						@foreach($game->players as $player)
 							<div class="checkbox">
@@ -51,7 +51,7 @@
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-						<h3>Points Acheived?</h3>
+						<h2>Points Acheived?</h2>
 						<div class="radio">
 							<label>
 								<input type="radio" name="acheived" value="1">
@@ -77,14 +77,7 @@
 			{{Form::close()}}
 		</div>
 		<div class="col-md-3">
-			<h3>Game Score</h3>
-			<ul>
-				@foreach($game->players->all() as $player)
-					<li>
-						{{$player->name}} - {{$player->scores()->where('game_id', $game->id)->sum('amount')}}
-					</li>
-				@endforeach
-			</ul>
+			@include('partials.scoreboard')
 		</div>
 	</div>
 @stop

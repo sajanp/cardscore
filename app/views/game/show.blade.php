@@ -49,14 +49,7 @@
 			</div>
 		</div>
 		<div class="col-md-3">
-			<h2>Players</h2>
-			<ul>
-				@foreach($game->players->all() as $player)
-					<li>
-						{{$player->name}} - {{$player->scores()->where('game_id', $game->id)->sum('amount')}}
-					</li>
-				@endforeach
-			</ul>
+			@include('partials.scoreboard')
 		</div>
 	</div>
 
