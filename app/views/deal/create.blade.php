@@ -85,7 +85,8 @@
 @section('footer-scripts')
 	<script>
 		$('#new-deal-form').submit(function(){
-		    $(this).children('input[type=submit]').prop('disabled', true);
+		    $('input[type=submit]').prop('disabled', true);
+		    $('input[type=submit]').prop('value', 'Working...');
 		});
 
 		$('#new-deal-form').bind("keyup keypress", function(e) {
