@@ -19,7 +19,7 @@
 					<td>{{$game->id}}</td>
 					<td>{{$game->players->count()}}</td>
 					<td>{{$game->deals->count()}}</td>
-					<td>{{$game->created_at}}</td>
+					<td>{{$game->created_at->toDayDateTimeString()}}</td>
 					<td>
 						{{HTML::linkRoute('game.show', 'View Game', $game->id, ['class' => 'btn btn-xs btn-primary'])}}
 					</td>
