@@ -29,6 +29,7 @@
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</nav>
+			<p class="alert alert-info">Feel free to play around, test, and tell me when you've broke things.  I will reset the data on Friday so you can start tracking your real data.</p>
 			@include('partials.alerts')
 			@yield('body')
 		</div>
