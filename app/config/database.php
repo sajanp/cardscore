@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'sqlite',
+	'default' => 'mysql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'rook',
-			'username'  => 'root',
-			'password'  => 'password',
+			'host'      => 'mysql1.noppix.net',
+			'database'  => 'card_db',
+			'username'  => 'cardscore',
+			'password'  => 'gujupassword',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
