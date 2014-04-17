@@ -7,21 +7,7 @@
 		<meta name=viewport content="width=device-width, initial-scale=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap CSS -->
-		<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/lumen/bootstrap.min.css" rel="stylesheet" media="screen">
-		<style>
-			body {
-				font-size: 18px;
-				margin: 0 25px;
-			}
-
-			.lead {
-				font-size: 24px;
-			}
-
-			table a, .table a {
-				text-decoration: none;
-			}
-		</style>
+		<link href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css" rel="stylesheet" media="screen">
 	</head>
 	<body>
 		<div class="container">
