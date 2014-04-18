@@ -1,7 +1,12 @@
 @extends('layouts.master')
 
 @section('body')
-	<h1>Game #{{$game->id}} <small>{{$game->updated_at->diffForHumans()}}</small> {{HTML::linkRoute('game.deal.create', 'Deal Into This Game', $game->id, ['class' => 'pull-right btn btn-primary pull-right'])}}</h1>
+	<h1>
+		Game #{{$game->id}} <small>{{$game->updated_at->diffForHumans()}}</small>
+		@if($game->created_at->gt(\Carbon\Carbon::now()->subHours(16)))
+			{{HTML::linkRoute('game.deal.create', 'Deal Into This Game', $game->id, ['class' => 'pull-right btn btn-primary pull-right'])}}
+		@endif
+	</h1>
 
 	<p></p>
 
