@@ -71,7 +71,7 @@
 	<script>
 		$('form').submit(function() {
 			var c = confirm("Click OK To Confirm Deleting That Deal.");
-			return c; //you can just return c because it will be true or false
+			return c;
 		});
 	</script>
 @stop
