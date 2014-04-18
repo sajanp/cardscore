@@ -130,9 +130,13 @@ class DealController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy($gameId, $dealId)
 	{
-		//
+		$deal = Deal::find($dealId);
+
+		$deal->delete();
+
+		return Redirect::route('game.show', $gameId)->withErrorMessage('You just deleted a deal!  Make sure you add it in again or that it was meant to be deleted!');
 	}
 
 

@@ -19,6 +19,7 @@
 							<th>Caller</th>
 							<th>Partners</th>
 							<th>Acheived</th>
+							<th>Delete</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -42,6 +43,13 @@
 										<p class="text-danger">NO</p>
 									@endif
 								</td>
+								<td>
+									{{Form::open(['method' => 'delete', 'route' => ['game.deal.destroy', $game->id, $deal->id]])}}
+										@if($deal->created_at->gt(\Carbon\Carbon::now()->subMinutes(5)))
+											{{Form::submit('Delete', ['class' => 'btn btn-danger btn-xs'])}}
+										@endif
+									{{Form::close()}}
+								</td>
 							</tr>
 						@endforeach
 					</tbody>
@@ -52,6 +60,13 @@
 			@include('partials.scoreboard')
 		</div>
 	</div>
+@stop
 
-			
+@section('footer-scripts')
+	<script>
+		$('form').submit(function() {
+			var c = confirm("Click OK To Confirm Deleting That Deal.");
+			return c; //you can just return c because it will be true or false
+		});
+	</script>
 @stop
