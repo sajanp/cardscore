@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'mysql1.noppix.net',
-			'database'  => 'card_db',
-			'username'  => 'cardscore',
-			'password'  => 'gujupassword',
+			'host'      => 'localhost',
+			'database'  => 'cardscore',
+			'username'  => 'root',
+			'password'  => 'password',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
