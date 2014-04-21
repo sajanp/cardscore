@@ -22,7 +22,7 @@ class CreateDealsTable extends Migration {
 			$table->timestamps();
 
 			$table->foreign('game_id')->references('id')->on('games')->onDelete('cascade')->onUpdate('cascade');
-			$table->foreign('trump_id')->references('id')->on('trumps');
+			$table->foreign('trump_id')->references('id')->on('trumps')->onUpdate('cascade');
 		});
 	}
 
