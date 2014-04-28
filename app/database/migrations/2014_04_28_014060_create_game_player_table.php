@@ -18,8 +18,8 @@ class CreateGamePlayerTable extends Migration {
 			$table->integer('game_id')->unsigned();
 			$table->integer('player_id')->unsigned();
 
-			$table->foreign('game_id')->references('id')->on('games');
-			$table->foreign('player_id')->references('id')->on('players');
+			$table->foreign('game_id')->references('id')->on('games')->onUpdate('cascade')->onDelete('cascade');
+			$table->foreign('player_id')->references('id')->on('players')->onUpdate('cascade');
 		});
 	}
 

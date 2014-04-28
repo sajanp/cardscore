@@ -24,8 +24,8 @@ class CreateScoresTable extends Migration {
 			$table->timestamps();
 
 			$table->foreign('deal_id')->references('id')->on('deals')->onDelete('cascade')->onUpdate('cascade');
-			$table->foreign('game_id')->references('id')->on('games');
-			$table->foreign('player_id')->references('id')->on('players');
+			$table->foreign('game_id')->references('id')->on('games')->onUpdate('cascade');
+			$table->foreign('player_id')->references('id')->on('players')->onUpdate('cascade');
 		});
 	}
 
