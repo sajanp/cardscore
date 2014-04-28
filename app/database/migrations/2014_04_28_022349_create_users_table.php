@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration {
 		Schema::create('users', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->text('remeber_token');
+			$table->text('remeber_token')->nullable();
 			$table->string('email');
 			$table->string('password');
 		});
@@ -28,10 +28,7 @@ class CreateUsersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('users', function(Blueprint $table)
-		{
-			//
-		});
+		Schema::drop('users');
 	}
 
 }
