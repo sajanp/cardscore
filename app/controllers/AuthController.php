@@ -20,4 +20,11 @@ class AuthController extends BaseController {
 		return Redirect::back()->withErrorMessage('Invalid credentials');
 	}
 
+	public function getLogout()
+	{
+		Auth::logout();
+
+		return Redirect::route('login')->withSuccessMessage('You have been logged out.');
+	}
+
 }

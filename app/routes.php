@@ -1,6 +1,6 @@
 <?php
 
-Route::controller('auth', 'AuthController', ['getLogin' => 'login', 'postLogin' => 'do.login']);
+Route::controller('auth', 'AuthController', ['getLogin' => 'login', 'postLogin' => 'do.login', 'getLogout' => 'logout']);
 
 Route::group(['before' => 'auth'], function()
 {
