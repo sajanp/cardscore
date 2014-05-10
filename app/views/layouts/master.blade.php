@@ -25,6 +25,7 @@
 				
 					<div class="collapse navbar-collapse navbar-ex1-collapse">
 						<ul class="nav navbar-nav">
+							<li>{{HTML::linkRoute('home', 'Stats')}}</li>
 							<li>{{HTML::linkRoute('game.index', 'Games')}}</li>
 							<li>{{HTML::linkRoute('player.index', 'Players')}}</li>
 						</ul>
