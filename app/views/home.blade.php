@@ -2,11 +2,31 @@
 
 @section('body')
 	<h1>Rook Scoring System <small>by Sajan Parikh</small></h1>
-	<h2>Changelog</h2>
-	<p class="lead">I'll note a list of changes I make here.  Both as record for myself, and in case you guys are curious.  If anyone of you are <i>really</i> curious, you can find my actual code and technical changelog <a href="http://git.sajan.io/sajan/cardscore-in/commits/master" target="_blank">here</a>.</p>
 
-	<ul>
-		<li>Change delete button visibility from 5 minutes to 2 minutes.</li>
-		<li>Fixed calculation error of 'high scorer(s)' on the game list page.</li>
-	</ul>
+	<h2>Global Stats</h2>
+	<p class="lead">Let's be honest, it's never <i>just</i> a game.</p>
+
+	<h3>Trump Stats</h3>
+
+	<div class="row">
+		<div class="col-md-2">
+			<h4># Hands Per Trump</h4>
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>Trump</th>
+						<th># of Hands</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach(Trump::all() as $trump)
+					<tr>
+						<td>{{$trump->name}}</td>
+						<td>{{Deal::where('trump_id', $trump->id)->count()}}</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
+	</div>
 @stop
