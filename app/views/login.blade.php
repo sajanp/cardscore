@@ -4,7 +4,7 @@
 	<h1>Login</h1>
 	<p>Please login below to continue.</p>
 
-	{{Form::open(['route' => 'do.login', 'class' => 'form-inline'])}}
+	{{Form::open(['route' => 'session.store', 'class' => 'form-inline'])}}
 		<div class="form-group">
 			{{Form::label('username', 'Username', ['class' => 'sr-only'])}}
 			{{Form::text('username', 'rook', ['class' => 'form-control input-lg', 'placeholder' => 'Username'])}}

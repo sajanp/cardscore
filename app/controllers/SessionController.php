@@ -1,13 +1,13 @@
 <?php
 
-class AuthController extends BaseController {
+class SessionController extends BaseController {
 
-	public function getLogin()
+	public function create()
 	{
 		return View::make('login');
 	}
 
-	public function postLogin()
+	public function store()
 	{
 		$credentials['username'] = Input::get('username');
 		$credentials['password'] = Input::get('password');
@@ -20,11 +20,11 @@ class AuthController extends BaseController {
 		return Redirect::back()->withErrorMessage('Invalid credentials');
 	}
 
-	public function getLogout()
+	public function destroy()
 	{
 		Auth::logout();
 
-		return Redirect::route('login')->withSuccessMessage('You have been logged out.');
+		return Redirect::route('session.create')->withSuccessMessage('You have been logged out.');
 	}
 
 }

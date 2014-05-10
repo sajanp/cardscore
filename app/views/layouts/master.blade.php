@@ -31,9 +31,10 @@
 							<li>{{HTML::linkRoute('game.index', 'Games')}}</li>
 							<li>{{HTML::linkRoute('player.index', 'Players')}}</li>
 						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<li>{{HTML::linkRoute('logout', 'Logout')}}</li>
-						</ul>
+
+						{{Form::open(['route' => 'session.destroy', 'method' => 'delete', 'class' => 'navbar-form navbar-right'])}}
+							{{Form::submit('Logout', ['class' => 'btn btn-danger'])}}
+						{{Form::close()}}
 					</div><!-- /.navbar-collapse -->
 				</div>
 			</nav>

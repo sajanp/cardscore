@@ -35,7 +35,7 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('auth/login');
+	if (Auth::guest()) return Redirect::route('session.create')->withErrorMessage('You need to be logged in to do that.');
 });
 
 

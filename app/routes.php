@@ -1,6 +1,6 @@
 <?php
 
-Route::controller('auth', 'AuthController', ['getLogin' => 'login', 'postLogin' => 'do.login', 'getLogout' => 'logout']);
+Route::resource('session', 'SessionController');
 
 Route::group(['before' => 'auth'], function()
 {
