@@ -134,12 +134,12 @@
 		</div>
 
 		<div class="col-md-3">
-			<h4>Non-Caller Wins Per Trump</h4>
+			<h4>Opposition Wins Per Trump</h4>
 			<table class="table table-condensed">
 				<thead>
 					<tr>
 						<th>Trump</th>
-						<th>Non-Caller Win %</th>
+						<th>Opposition Win %</th>
 					</tr>
 				</thead>
 				<tbody>
