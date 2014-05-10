@@ -53,12 +53,12 @@
 
 	<div class="row">
 		<div class="col-md-2">
-			<h4>Hands Per Trump</h4>
+			<h4>Deals Per Trump</h4>
 			<table class="table table-condensed">
 				<thead>
 					<tr>
 						<th>Trump</th>
-						<th># of Hands</th>
+						<th># of Deals</th>
 					</tr>
 				</thead>
 				<tbody>
