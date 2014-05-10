@@ -4,7 +4,6 @@
 	<h1>Rook Scoring System <small>by Sajan Parikh</small></h1>
 
 	<h2>Global Stats</h2>
-	<p class="lead">Let's be honest, it's never <i>just</i> a game.</p>
 	
 	<h3>Totals and Aggregates</h3>
 
