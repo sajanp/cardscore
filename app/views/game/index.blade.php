@@ -25,9 +25,17 @@
 
 					arsort($scores);
 
-					$highScore = reset($scores);
+					$highscore = head($scores);
 
-					$winners = array_keys($scores, $highScore);
+					$winners = array_where($scores, function($key, $value) use ($highscore)
+					{
+						if ($value == $highscore)
+						{
+							return true;
+						}
+
+						return false;
+					});
 				?>
 					<tr>
 						<td>{{$game->id}}</td>
@@ -35,14 +43,17 @@
 						<td>{{$game->players->count()}}</td>
 						<td>{{$game->deals->count()}}</td>
 						<td>
-							@foreach($winners as $winner)
-								{{$winner}} <br>
+							@foreach($winners as $name => $score)
+								{{$name}} <br>
 							@endforeach
 						</td>
 						<td>
 							{{HTML::linkRoute('game.show', 'View Game', $game->id, ['class' => 'btn btn-xs btn-primary'])}}
 						</td>
 					</tr>
+
+					<?php unset($scores); ?>
+					<?php unset($winners); ?>
 				@endforeach
 			</tbody>
 		</table>
