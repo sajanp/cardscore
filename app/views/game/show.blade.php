@@ -50,7 +50,7 @@
 								</td>
 								<td>
 									{{Form::open(['method' => 'delete', 'route' => ['game.deal.destroy', $game->id, $deal->id]])}}
-										@if($deal->created_at->gt(\Carbon\Carbon::now()->subMinutes(5)))
+										@if($deal->created_at->gt(\Carbon\Carbon::now()->subMinutes(2)))
 											{{Form::submit('Delete', ['class' => 'btn btn-danger btn-xs'])}}
 										@endif
 									{{Form::close()}}
