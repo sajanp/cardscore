@@ -6,7 +6,7 @@
 	<h2>Global Stats</h2>
 	<p class="lead">Let's be honest, it's never <i>just</i> a game.</p>
 	
-	<h3>Some Totals and Aggregates</h3>
+	<h3>Totals and Aggregates</h3>
 
 	<div class="row">
 		<div class="col-md-3">
@@ -41,6 +41,42 @@
 					<tr>
 						<td>Lowest Points Called</td>
 						<td>{{Deal::min('point_value')}} - {{Deal::where('point_value', Deal::min('point_value'))->count()}} times.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-3">
+			<table class="table table-condensed">
+				<tbody>
+					<tr>
+						<td>Total Points Awarded</td>
+						<td>{{Score::sum('amount')}}</td>
+					</tr>
+					<tr>
+						<td>Total Points To Callers</td>
+						<td>{{Score::where('caller', true)->sum('amount')}}</td>
+					</tr>
+					<tr>
+						<td>Total Points To Partners</td>
+						<td>{{Score::where('partner', true)->sum('amount')}}</td>
+					</tr>
+					<tr>
+						<td>Total Points To Oppisition</td>
+						<td>{{Score::where('partner', false)->where('caller', false)->sum('amount')}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-3">
+			<table class="table table-condensed">
+				<tbody>
+					<tr>
+						<td>Deals Won By Caller</td>
+						<td>{{Deal::where('acheived', true)->count()}} - {{number_format(Deal::where('acheived', true)->count() / Deal::count() * 100)}}%</td>
+					</tr>
+					<tr>
+						<td>Deals Won By Opposition</td>
+						<td>{{Deal::where('acheived', false)->count()}} - {{number_format(Deal::where('acheived', false)->count() / Deal::count() * 100)}}%</td>
 					</tr>
 				</tbody>
 			</table>
