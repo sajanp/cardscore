@@ -85,7 +85,7 @@ class DealController extends \BaseController {
 			$deal->scores()->save(new Score(['game_id' => $gameId, 'player_id' => $player, 'amount' => ($deal->acheived ? 0 : $deal->point_value)]));
 		}
 
-		return Redirect::route('game.show', $game->id)->withSuccessMessage('Deal posted.  <strong>Please double check things.  You can only delete a hand in the first 5 MINUTES!</strong>');
+		return Redirect::route('game.show', $game->id)->withSuccessMessage('Deal posted.  <strong>Please double check things.  You can only delete a hand within the 2 MINUTES!</strong>');
 	}
 
 

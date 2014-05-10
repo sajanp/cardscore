@@ -11,6 +11,9 @@
 	<p></p>
 
 	<div class="row">
+		<div class="col-md-3">
+			@include('partials.scoreboard')
+		</div>
 		<div class="col-md-9">
 			<h2>Deal History</h2>
 
@@ -19,8 +22,7 @@
 					<thead>
 						<tr>
 							<th>Time</th>
-							<th>Trump</th>
-							<th>Points</th>
+							<th>Call</th>
 							<th>Caller</th>
 							<th>Partners</th>
 							<th>Acheived</th>
@@ -37,8 +39,7 @@
 										{{Form::close()}}
 									@endif
 								</td>
-								<td>{{$deal->trump->name}}</td>
-								<td>{{$deal->point_value}}</td>
+								<td>{{$deal->point_value}} - {{$deal->trump->name}} - {{$deal->high ? 'High' : 'Low'}}</td>
 								<td>{{$deal->scores()->where('caller', true)->first()->player->name}}</td>
 								<td>
 									<p>
@@ -59,9 +60,6 @@
 					</tbody>
 				</table>
 			</div>
-		</div>
-		<div class="col-md-3">
-			@include('partials.scoreboard')
 		</div>
 	</div>
 @stop
