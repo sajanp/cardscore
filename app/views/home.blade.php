@@ -61,7 +61,7 @@
 						<td>{{Score::where('partner', true)->sum('amount')}}</td>
 					</tr>
 					<tr>
-						<td>Total Points To Oppisition</td>
+						<td>Total Points To Opposition</td>
 						<td>{{Score::where('partner', false)->where('caller', false)->sum('amount')}}</td>
 					</tr>
 				</tbody>
