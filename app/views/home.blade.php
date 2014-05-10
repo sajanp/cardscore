@@ -108,12 +108,12 @@
 		</div>
 
 		<div class="col-md-3">
-			<h4>Caller Wins Per Trump</h4>
+			<h4>Caller/Partner Wins Per Trump</h4>
 			<table class="table table-condensed">
 				<thead>
 					<tr>
 						<th>Trump</th>
-						<th>Caller Win %</th>
+						<th>Caller/Partner Win %</th>
 					</tr>
 				</thead>
 				<tbody>
