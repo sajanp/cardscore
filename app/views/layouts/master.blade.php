@@ -6,11 +6,8 @@
 		<meta name=description content="">
 		<meta name=viewport content="width=device-width, initial-scale=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 	</head>
 	<body>
 		<div class="container">
@@ -31,10 +28,6 @@
 							<li>{{HTML::linkRoute('game.index', 'Games')}}</li>
 							<li>{{HTML::linkRoute('player.index', 'Players')}}</li>
 						</ul>
-
-						{{Form::open(['route' => 'session.destroy', 'method' => 'delete', 'class' => 'navbar-form navbar-right'])}}
-							{{Form::submit('Logout', ['class' => 'btn btn-danger'])}}
-						{{Form::close()}}
 					</div><!-- /.navbar-collapse -->
 				</div>
 			</nav>

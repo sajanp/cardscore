@@ -2,7 +2,7 @@
 
 @section('body')
 	<h1>
-		Game #{{$game->id}} <small>{{$game->updated_at->diffForHumans()}}</small>
+		Game #{{$game->id}} <small>{{$game->created_at->toDayDateTimeString()}}</small>
 		@if($game->created_at->gt(\Carbon\Carbon::now()->subHours(16)))
 			{{HTML::linkRoute('game.deal.create', 'Deal Into This Game', $game->id, ['class' => 'pull-right btn btn-primary pull-right'])}}
 		@endif
@@ -15,7 +15,7 @@
 			<h2>Deal History</h2>
 
 			<div class="table-responsive">
-				<table class="table table-hover table-bordered table-condensed">
+				<table class="table table-hover table-condensed">
 					<thead>
 						<tr>
 							<th>Time</th>
@@ -24,13 +24,19 @@
 							<th>Caller</th>
 							<th>Partners</th>
 							<th>Acheived</th>
-							<th>Delete</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($game->deals()->orderBy('created_at', 'desc')->get() as $deal)
 							<tr>
-								<td>{{$deal->created_at->diffForHumans()}}</td>
+								<td>
+									{{$deal->created_at->format('h:i A')}} <br>
+									@if($deal->created_at->gt(\Carbon\Carbon::now()->subMinutes(2)))
+										{{Form::open(['method' => 'delete', 'route' => ['game.deal.destroy', $game->id, $deal->id]])}}
+											{{Form::submit('Delete', ['class' => 'btn btn-danger btn-xs'])}}
+										{{Form::close()}}
+									@endif
+								</td>
 								<td>{{$deal->trump->name}}</td>
 								<td>{{$deal->point_value}}</td>
 								<td>{{$deal->scores()->where('caller', true)->first()->player->name}}</td>
@@ -47,13 +53,6 @@
 									@else
 										<p class="text-danger">NO</p>
 									@endif
-								</td>
-								<td>
-									{{Form::open(['method' => 'delete', 'route' => ['game.deal.destroy', $game->id, $deal->id]])}}
-										@if($deal->created_at->gt(\Carbon\Carbon::now()->subMinutes(2)))
-											{{Form::submit('Delete', ['class' => 'btn btn-danger btn-xs'])}}
-										@endif
-									{{Form::close()}}
 								</td>
 							</tr>
 						@endforeach
