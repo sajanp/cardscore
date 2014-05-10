@@ -160,6 +160,8 @@
 		</div>
 	</div>
 
+	<hr>
+
 	<h3>Player Stats</h3>
 
 	<div class="row">
