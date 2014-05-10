@@ -8,7 +8,7 @@ foreach ($game->players->all() as $player) {
 arsort($scores);
 ?>
 
-<table class="table table-condensed table-hover table-bordered">
+<table class="table table-condensed table-hover">
 	@foreach($scores as $player => $score)
 		<tr>
 			<td>{{$player}}</td>
