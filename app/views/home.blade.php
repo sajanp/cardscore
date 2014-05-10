@@ -160,4 +160,32 @@
 			</table>
 		</div>
 	</div>
+
+	<h3>Player Stats</h3>
+
+	<div class="row">
+		<div class="col-md-3">
+			<h4>All Time Points</h4>
+
+			<?php
+
+			foreach (Player::all() as $player) {
+				$scores[$player->name] = $player->scores()->sum('amount');
+			}
+
+			arsort($scores);
+			?>
+
+			<table class="table table-condensed">
+				<tbody>
+					@foreach($scores as $player => $score)
+						<tr>
+							<td>{{$player}}</td>
+							<td>{{$score}}</td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+		</div>
+	</div>
 @stop
