@@ -216,7 +216,7 @@
 					@foreach($scores as $player => $score)
 						<tr>
 							<td>{{$player}}</td>
-							<td>{{$score}}</td>
+							<td>{{number_format($score)}}</td>
 						</tr>
 					@endforeach
 				</tbody>
