@@ -51,6 +51,21 @@
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
+						<h2>High or Low</h2>
+						<div class="radio">
+							<label>
+								<input type="radio" name="high" value="1">
+								High
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input type="radio" name="high" value="0">
+								Low
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
 						<h2>Points Acheived?</h2>
 						<div class="radio">
 							<label>

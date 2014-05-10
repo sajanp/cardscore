@@ -52,6 +52,7 @@ class DealController extends \BaseController {
 		$deal->trump_id = Input::get('trump_id');
 		$deal->point_value = Input::get('point_value');
 		$deal->acheived = Input::get('acheived');
+		$deal->high = Input::get('high');
 
 		$game->deals()->save($deal);
 
