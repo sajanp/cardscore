@@ -185,6 +185,44 @@
 					@endforeach
 				</tbody>
 			</table>
+
+			<?php unset($scores); ?>
+		</div>
+
+		<div class="col-md-3">
+			<h4>Points Per Game</h4>
+
+			<?php
+
+				foreach (Player::all() as $player)
+				{
+					if ($player->games->count())
+					{
+						$scores[$player->name] = Score::where('player_id', $player->id)->sum('amount') / $player->games->count();
+					}
+					else
+					{
+						$scores[$player->name] = '';
+					}
+
+				}
+
+				arsort($scores)
+
+			?>
+
+			<table class="table table-condensed">
+				<tbody>
+					@foreach($scores as $player => $score)
+						<tr>
+							<td>{{$player}}</td>
+							<td>{{$score}}</td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+
+			<?php unset($scores); ?>
 		</div>
 	</div>
 @stop
