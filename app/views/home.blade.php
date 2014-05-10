@@ -5,6 +5,49 @@
 
 	<h2>Global Stats</h2>
 	<p class="lead">Let's be honest, it's never <i>just</i> a game.</p>
+	
+	<h3>Some Totals and Aggregates</h3>
+
+	<div class="row">
+		<div class="col-md-3">
+			<table class="table table-condensed">
+				<tbody>
+					<tr>
+						<td>Total Games Played</td>
+						<td>{{Game::count()}}</td>
+					</tr>
+					<tr>
+						<td>Total Deals</td>
+						<td>{{Deal::count()}}</td>
+					</tr>
+					<tr>
+						<td>Avg Deals Per Game</td>
+						<td>{{number_format(Deal::count() / Game::count())}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-3">
+			<table class="table table-condensed">
+				<tbody>
+					<tr>
+						<td>Avg Points Called</td>
+						<td>{{number_format(Deal::avg('point_value'))}}</td>
+					</tr>
+					<tr>
+						<td>Highest Points Called</td>
+						<td>{{Deal::max('point_value')}} - {{Deal::where('point_value', Deal::max('point_value'))->count()}} times.</td>
+					</tr>
+					<tr>
+						<td>Lowest Points Called</td>
+						<td>{{Deal::min('point_value')}} - {{Deal::where('point_value', Deal::min('point_value'))->count()}} times.</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<hr>
 
 	<h3>Trump Stats</h3>
 
