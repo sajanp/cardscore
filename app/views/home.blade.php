@@ -202,7 +202,7 @@
 					}
 					else
 					{
-						$scores[$player->name] = '';
+						$scores[$player->name] = 0;
 					}
 
 				}
