@@ -232,5 +232,44 @@
 
 			<?php unset($scores); ?>
 		</div>
+
+		<div class="col-md-3">
+			<h4>Points Per Game <small>(min 100 deals)</small></h4>
+
+			<?php
+
+				foreach (Player::all() as $player)
+				{
+					if ($player->scores->count() > 100)
+					{
+						$scores[$player->name] = Score::where('player_id', $player->id)->sum('amount') / $player->games->count();
+					}
+
+				}
+
+				if (isset($scores))
+				{
+					arsort($scores);
+				}
+				else
+				{
+					$scores = array();
+				}
+
+			?>
+
+			<table class="table table-condensed">
+				<tbody>
+					@foreach($scores as $player => $score)
+						<tr>
+							<td>{{$player}}</td>
+							<td>{{number_format($score)}}</td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+
+			<?php unset($scores); ?>
+		</div>
 	</div>
 @stop
