@@ -12,7 +12,6 @@
 					<th>Player Count</th>
 					<th>Deal Count</th>
 					<th>High Scorer</th>
-					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -39,16 +38,13 @@
 				?>
 					<tr>
 						<td>{{$game->id}}</td>
-						<td>{{$game->created_at->toDayDateTimeString()}}</td>
+						<td>{{HTML::linkRoute('game.show', $game->created_at->toDayDateTimeString(), $game->id)}}</td>
 						<td>{{$game->players->count()}}</td>
 						<td>{{$game->deals->count()}}</td>
 						<td>
 							@foreach($winners as $name => $score)
 								{{$name}} <br>
 							@endforeach
-						</td>
-						<td>
-							{{HTML::linkRoute('game.show', 'View Game', $game->id, ['class' => 'btn btn-xs btn-primary'])}}
 						</td>
 					</tr>
 

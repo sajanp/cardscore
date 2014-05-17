@@ -6,13 +6,17 @@ foreach ($game->players->all() as $player) {
 }
 
 arsort($scores);
+
+$i = 1;
 ?>
 
 <table class="table table-condensed table-hover">
 	@foreach($scores as $player => $score)
 		<tr>
-			<td>{{$player}}</td>
+			<td>#{{$i}} {{$player}}</td>
 			<td>{{$score}}</td>
 		</tr>
+
+		<?php $i++; ?>
 	@endforeach
 </table>
