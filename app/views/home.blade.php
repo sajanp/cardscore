@@ -13,11 +13,11 @@
 				<tbody>
 					<tr>
 						<td>Total Games Played</td>
-						<td>{{Game::count()}}</td>
+						<td>{{number_format(Game::count())}}</td>
 					</tr>
 					<tr>
 						<td>Total Deals</td>
-						<td>{{Deal::count()}}</td>
+						<td>{{number_format(Deal::count())}}</td>
 					</tr>
 					<tr>
 						<td>Avg Deals Per Game</td>
@@ -35,11 +35,11 @@
 					</tr>
 					<tr>
 						<td>Highest Points Called</td>
-						<td>{{Deal::max('point_value')}} - {{Deal::where('point_value', Deal::max('point_value'))->count()}} times.</td>
+						<td>{{number_format(Deal::max('point_value'))}} - {{number_format(Deal::where('point_value', Deal::max('point_value'))->count())}} times.</td>
 					</tr>
 					<tr>
 						<td>Lowest Points Called</td>
-						<td>{{Deal::min('point_value')}} - {{Deal::where('point_value', Deal::min('point_value'))->count()}} times.</td>
+						<td>{{number_format(Deal::min('point_value'))}} - {{number_format(Deal::where('point_value', Deal::min('point_value'))->count())}} times.</td>
 					</tr>
 				</tbody>
 			</table>
@@ -49,19 +49,19 @@
 				<tbody>
 					<tr>
 						<td>Total Points Awarded</td>
-						<td>{{Score::sum('amount')}}</td>
+						<td>{{number_format(Score::sum('amount'))}}</td>
 					</tr>
 					<tr>
 						<td>Total Points To Callers</td>
-						<td>{{Score::where('caller', true)->sum('amount')}}</td>
+						<td>{{number_format(Score::where('caller', true)->sum('amount'))}}</td>
 					</tr>
 					<tr>
 						<td>Total Points To Partners</td>
-						<td>{{Score::where('partner', true)->sum('amount')}}</td>
+						<td>{{number_format(Score::where('partner', true)->sum('amount'))}}</td>
 					</tr>
 					<tr>
 						<td>Total Points To Opposition</td>
-						<td>{{Score::where('partner', false)->where('caller', false)->sum('amount')}}</td>
+						<td>{{number_format(Score::where('partner', false)->where('caller', false)->sum('amount'))}}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -71,11 +71,11 @@
 				<tbody>
 					<tr>
 						<td>Deals Won By Caller</td>
-						<td>{{Deal::where('acheived', true)->count()}} - {{number_format(Deal::where('acheived', true)->count() / Deal::count() * 100)}}%</td>
+						<td>{{number_format(Deal::where('acheived', true)->count())}} - {{number_format(Deal::where('acheived', true)->count() / Deal::count() * 100)}}%</td>
 					</tr>
 					<tr>
 						<td>Deals Won By Opposition</td>
-						<td>{{Deal::where('acheived', false)->count()}} - {{number_format(Deal::where('acheived', false)->count() / Deal::count() * 100)}}%</td>
+						<td>{{number_format(Deal::where('acheived', false)->count())}} - {{number_format(Deal::where('acheived', false)->count() / Deal::count() * 100)}}%</td>
 					</tr>
 				</tbody>
 			</table>
@@ -100,7 +100,7 @@
 					@foreach(Trump::all() as $trump)
 					<tr>
 						<td>{{$trump->name}}</td>
-						<td>{{Deal::where('trump_id', $trump->id)->count()}}</td>
+						<td>{{number_format(Deal::where('trump_id', $trump->id)->count())}}</td>
 					</tr>
 					@endforeach
 				</tbody>
@@ -197,7 +197,7 @@
 					@foreach($scores as $score)
 						<tr>
 							<td>{{$score['name']}}</td>
-							<td>{{$score['score']}} - {{$score['games']}} Games</td>
+							<td>{{number_format($score['score'])}} - {{$score['games']}} Games</td>
 						</tr>
 					@endforeach
 				</tbody>
