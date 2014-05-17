@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('body')
-	<h1>Game History {{HTML::linkRoute('game.create', 'Start New', null, ['class' => 'btn pull-right btn-primary'])}}</h1>
+	<h1>Game History {{HTML::linkRoute('game.create', 'Start New', null, ['class' => 'btn pull-right btn-primary hidden-xs hidden-sm'])}}</h1>
 	<p class="lead">Below is a history of all your games.</p>
 	<div class="table-responsive">
 		<table class="table table-hover">

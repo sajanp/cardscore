@@ -4,7 +4,7 @@
 	<h1>
 		Game #{{$game->id}} <small>{{$game->created_at->toDayDateTimeString()}}</small>
 		@if($game->created_at->gt(\Carbon\Carbon::now()->subHours(16)))
-			{{HTML::linkRoute('game.deal.create', 'Deal Into This Game', $game->id, ['class' => 'pull-right btn btn-primary pull-right'])}}
+			{{HTML::linkRoute('game.deal.create', 'Deal Into This Game', $game->id, ['class' => 'pull-right btn btn-primary pull-right hidden-sm hidden-xs'])}}
 		@endif
 	</h1>
 
