@@ -54,5 +54,9 @@
 			var c = confirm("Click OK To Confirm Deleting That Deal.");
 			return c;
 		});
+		
+		setTimeout(function(){
+			location = ''
+		}, 60000);
 	</script>
 @stop

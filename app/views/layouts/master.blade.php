@@ -16,6 +16,7 @@
 
 			.label {
 				line-height: 2;
+				font-size: 100%;
 			}
 
 			a:focus, a:active {
