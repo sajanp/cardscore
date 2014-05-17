@@ -165,7 +165,7 @@
 	<h3>Player Stats</h3>
 
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<h4>All Time Points</h4>
 
 			<?php
@@ -197,7 +197,7 @@
 					@foreach($scores as $score)
 						<tr>
 							<td>{{$score['name']}}</td>
-							<td>{{number_format($score['score'])}} - {{$score['games']}} Games</td>
+							<td>{{number_format($score['score'])}}</td>
 						</tr>
 					@endforeach
 				</tbody>
@@ -281,6 +281,44 @@
 			</table>
 
 			<?php unset($scores); ?>
+		</div>
+		<div class="col-md-3">
+			<h4>Deals Called</h4>
+
+			<?php
+
+				foreach (Player::all() as $player)
+				{
+					if (Score::where('caller', true)->where('player_id', $player->id)->count())
+					{
+						$deals[$player->name] = Score::where('caller', true)->where('player_id', $player->id)->count();
+					}
+
+				}
+
+				if (isset($deals))
+				{
+					arsort($deals);
+				}
+				else
+				{
+					$deals = array();
+				}
+
+			?>
+
+			<table class="table table-condensed">
+				<tbody>
+					@foreach($deals as $player => $deals)
+						<tr>
+							<td>{{$player}}</td>
+							<td>{{number_format($deals)}}</td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
+
+			<?php unset($deals); ?>
 		</div>
 	</div>
 @stop
