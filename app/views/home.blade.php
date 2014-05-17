@@ -170,8 +170,12 @@
 
 			<?php
 
-			foreach (Player::all() as $player) {
-				$scores[$player->name] = $player->scores()->sum('amount');
+			foreach (Player::all() as $player)
+			{
+				if ($player->scores->count())
+				{
+					$scores[$player->name] = $player->scores()->sum('amount');
+				}	
 			}
 
 			arsort($scores);
@@ -201,10 +205,6 @@
 					if ($player->scores->count())
 					{
 						$scores[$player->name] = Score::where('player_id', $player->id)->sum('amount') / $player->scores->count();
-					}
-					else
-					{
-						$scores[$player->name] = 0;
 					}
 				}
 
