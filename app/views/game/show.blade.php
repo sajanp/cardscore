@@ -20,7 +20,7 @@
 			@foreach($game->deals()->orderBy('created_at', 'desc')->get() as $deal)
 				<div class="row">
 					<div class="col-md-3 col-xs-3">
-						<img src="{{asset('img/profile.jpg')}}" alt="profile" class="img-responsive img-rounded" style="margin:5px">
+						<img src="{{asset('img/profiles/' . $deal->scores()->where('caller', true)->first()->player->id . '.jpg')}}" alt="profile" class="img-responsive img-rounded" style="margin:5px">
 					</div>
 					<div class="col-md-9 col-xs-9">
 						<h4>{{$deal->scores()->where('caller', true)->first()->player->name}}</h4>
