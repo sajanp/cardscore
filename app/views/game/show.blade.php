@@ -24,15 +24,13 @@
 					</div>
 					<div class="col-md-9 col-xs-9">
 						<h4>{{$deal->scores()->where('caller', true)->first()->player->name}}</h4>
-						<small style="color:grey"><i>{{$deal->created_at->format('h:i A')}} - Deal #{{$i}}</i></small>
+						<span class="label {{$deal->acheived ? 'label-success' : 'label-danger'}}">{{$deal->trump->name}} - {{$deal->high ? 'High' : 'Low'}} - {{$deal->point_value}}</span>
 						<p>
 							@foreach($deal->scores()->where('partner', true)->get() as $partner)
 								<span class="label label-default">{{$partner->player->name}}</span>
 							@endforeach
 						</p>
-						<p class="{{$deal->acheived ? 'bg-success' : 'bg-danger'}}">
-							{{$deal->trump->name}} - {{$deal->high ? 'High' : 'Low'}} - {{$deal->point_value}}
-						</p>
+						<small style="color:grey"><i>{{$deal->created_at->format('h:i A')}} - Deal #{{$i}}</i></small>
 						@if($deal->created_at->gt(\Carbon\Carbon::now()->subMinutes(2)))
 							{{Form::open(['method' => 'delete', 'route' => ['game.deal.destroy', $game->id, $deal->id]])}}
 								{{Form::submit('Delete', ['class' => 'btn btn-danger btn-xs pull-right'])}}
