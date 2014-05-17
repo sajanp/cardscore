@@ -13,6 +13,10 @@
 			table tr td:last-child, table tr th:last-child {
 			    text-align: right;
 			}
+
+			.label {
+				line-height: 2;
+			}
 		</style>
 	</head>
 	<body>
