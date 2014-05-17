@@ -192,17 +192,20 @@
 		</div>
 
 		<div class="col-md-3">
-			<h4>Points Per Game <small>(min 100 deals)</small></h4>
+			<h4>Avg Points Per Deal</h4>
 
 			<?php
 
 				foreach (Player::all() as $player)
 				{
-					if ($player->scores->count() > 100)
+					if ($player->scores->count())
 					{
-						$scores[$player->name] = Score::where('player_id', $player->id)->sum('amount') / $player->games->count();
+						$scores[$player->name] = Score::where('player_id', $player->id)->sum('amount') / $player->scores->count();
 					}
-
+					else
+					{
+						$scores[$player->name] = 0;
+					}
 				}
 
 				if (isset($scores))
