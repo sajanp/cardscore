@@ -165,7 +165,7 @@
 	<h3>Player Stats</h3>
 
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-4">
 			<h4>All Time Points</h4>
 
 			<?php
@@ -174,19 +174,30 @@
 			{
 				if ($player->scores->count())
 				{
-					$scores[$player->name] = $player->scores()->sum('amount');
+					$scores[$player->id]['name'] = $player->name;
+					$scores[$player->id]['score'] = $player->scores()->sum('amount');
+					$scores[$player->id]['games'] = $player->games()->count();
 				}	
 			}
 
-			arsort($scores);
+			function cmp($a, $b) {
+				if ($a['score'] == $b['score'])
+				{
+					return 0;
+				}
+
+				return ($a['score'] > $b['score']) ? -1 : 1;
+			}
+
+			uasort($scores, 'cmp');
 			?>
 
 			<table class="table table-condensed">
 				<tbody>
-					@foreach($scores as $player => $score)
+					@foreach($scores as $score)
 						<tr>
-							<td>{{$player}}</td>
-							<td>{{$score}}</td>
+							<td>{{$score['name']}}</td>
+							<td>{{$score['score']}} - {{$score['games']}} Games</td>
 						</tr>
 					@endforeach
 				</tbody>
