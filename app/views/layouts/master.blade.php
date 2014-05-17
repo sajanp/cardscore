@@ -17,31 +17,35 @@
 			.label {
 				line-height: 2;
 			}
+
+			a:focus, a:active {
+				outline: none;
+			}
 		</style>
 	</head>
 	<body>
-		<div class="container">
-			<nav class="navbar navbar-default navbar-static-top" role="navigation">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						{{HTML::linkRoute('home', 'Rook Scoring System', null, ['class' => 'navbar-brand'])}}
-					</div>
-				
-					<div class="collapse navbar-collapse navbar-ex1-collapse">
-						<ul class="nav navbar-nav">
-							<li>{{HTML::linkRoute('home', 'Stats')}}</li>
-							<li>{{HTML::linkRoute('game.index', 'Games')}}</li>
-							<li>{{HTML::linkRoute('player.index', 'Players')}}</li>
-						</ul>
-					</div><!-- /.navbar-collapse -->
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					{{HTML::linkRoute('home', 'Rook Scoring System', null, ['class' => 'navbar-brand'])}}
 				</div>
-			</nav>
+			
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
+						<li>{{HTML::linkRoute('home', 'Stats')}}</li>
+						<li>{{HTML::linkRoute('game.index', 'Games')}}</li>
+						<li>{{HTML::linkRoute('player.index', 'Players')}}</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>
+		</nav>
+		<div class="container">
 			@include('partials.alerts')
 			@yield('body')
 		</div>
