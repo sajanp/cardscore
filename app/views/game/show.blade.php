@@ -45,6 +45,9 @@
 		<div class="col-md-3 hidden-sm hidden-xs">
 			@include('partials.scoreboard')
 		</div>
+		<div class="col-md-3 hidden-sm hidden-xs">
+			<p class="alert alert-info">Game stats will go here...</p>
+		</div>
 	</div>
 @stop
 
