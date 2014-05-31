@@ -14,39 +14,48 @@
 		<div class="col-md-3 visible-sm visible-xs">
 			@include('partials.scoreboard')
 		</div>
-		<div class="col-md-5">
-			<h2>Deal History</h2>
-			<?php $i = $game->deals()->count(); ?>
-			@foreach($game->deals()->orderBy('created_at', 'desc')->get() as $deal)
-				<div class="row">
-					<div class="col-md-3 col-xs-3">
-						<img src="{{asset('img/profiles/' . $deal->scores()->where('caller', true)->first()->player->id . '.jpg')}}" alt="profile" class="img-responsive img-rounded" style="margin:5px">
-					</div>
-					<div class="col-md-9 col-xs-9">
-						<h4>{{$deal->scores()->where('caller', true)->first()->player->name}}</h4>
-						<span class="label {{$deal->acheived ? 'label-success' : 'label-danger'}}">{{$deal->trump->name}} - {{$deal->high ? 'High' : 'Low'}} - {{$deal->point_value}}</span>
-						<p>
-							@foreach($deal->scores()->where('partner', true)->get() as $partner)
-								<span class="label label-default">{{$partner->player->name}}</span>
-							@endforeach
-						</p>
-						<small style="color:grey"><i>{{$deal->created_at->format('h:i A')}} - Deal #{{$i}}</i></small>
-						@if($deal->created_at->gt(\Carbon\Carbon::now()->subMinutes(2)))
-							{{Form::open(['method' => 'delete', 'route' => ['game.deal.destroy', $game->id, $deal->id]])}}
-								{{Form::submit('Delete', ['class' => 'btn btn-danger btn-xs pull-right'])}}
-							{{Form::close()}}
-						@endif
-					</div>
+		<div class="col-md-9">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#deals" data-toggle="tab">Deal History</a></li>
+				<li><a href="#summary" data-toggle="tab">Summary</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div class="tab-pane active" id="deals">
+					<h2>Deal History</h2>
+					<?php $i = $game->deals()->count(); ?>
+					@foreach($game->deals()->orderBy('created_at', 'desc')->get() as $deal)
+						<div class="row">
+							<div class="col-md-3 col-xs-3">
+								<img src="{{asset('img/profiles/' . $deal->scores()->where('caller', true)->first()->player->id . '.jpg')}}" alt="profile" class="img-responsive img-rounded" style="margin:5px">
+							</div>
+							<div class="col-md-9 col-xs-9">
+								<h4>{{$deal->scores()->where('caller', true)->first()->player->name}}</h4>
+								<span class="label {{$deal->acheived ? 'label-success' : 'label-danger'}}">{{$deal->trump->name}} - {{$deal->high ? 'High' : 'Low'}} - {{$deal->point_value}}</span>
+								<p>
+									@foreach($deal->scores()->where('partner', true)->get() as $partner)
+										<span class="label label-default">{{$partner->player->name}}</span>
+									@endforeach
+								</p>
+								<small style="color:grey"><i>{{$deal->created_at->format('h:i A')}} - Deal #{{$i}}</i></small>
+								@if($deal->created_at->gt(\Carbon\Carbon::now()->subMinutes(2)))
+									{{Form::open(['method' => 'delete', 'route' => ['game.deal.destroy', $game->id, $deal->id]])}}
+										{{Form::submit('Delete', ['class' => 'btn btn-danger btn-xs pull-right'])}}
+									{{Form::close()}}
+								@endif
+							</div>
+						</div>
+						<hr>
+						<?php $i--; ?>			
+					@endforeach					
 				</div>
-				<hr>
-				<?php $i--; ?>			
-			@endforeach
+				<div class="tab-pane" id="summary">
+					<h2>Game Summary</h2>
+				</div>
+			</div>
 		</div>
 		<div class="col-md-3 hidden-sm hidden-xs">
 			@include('partials.scoreboard')
-		</div>
-		<div class="col-md-3 hidden-sm hidden-xs">
-			<p class="alert alert-info">Game stats will go here...</p>
 		</div>
 	</div>
 @stop
