@@ -40,45 +40,39 @@
 
 	<div class="col-md-6">
 		<h4>Deals Per Trump</h4>
-			<table class="table table-condensed">
-				<thead>
-					<tr>
-						<th>Trump</th>
-						<th># of Deals</th>
-					</tr>
-				</thead>
-				<tbody>
-					@foreach(Trump::all() as $trump)
-					<tr>
-						<td>{{$trump->name}}</td>
-						<td>{{number_format(Deal::where('trump_id', $trump->id)->where('game_id', $game->id)->count())}}</td>
-					</tr>
-					@endforeach
-				</tbody>
-			</table>
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>Trump</th>
+					<th># of Deals</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach(Trump::all() as $trump)
+				<tr>
+					<td>{{$trump->name}}</td>
+					<td>{{number_format(Deal::where('trump_id', $trump->id)->where('game_id', $game->id)->count())}}</td>
+				</tr>
+				@endforeach
+			</tbody>
+		</table>
 	</div>
 
 	<div class="col-md-6">
 		<h4>High/Low Deals</h4>
-			<table class="table table-condensed">
-				<thead>
-					<tr>
-						<th>
-							High
-						</th>
-						<td>
-							{{Deal::where('high', true)->where('game_id', $game->id)->count()}}
-						</td>
-					</tr>
-					<tr>
-						<th>
-							Low
-						</th>
-						<td>
-							{{Deal::where('high', false)->where('game_id', $game->id)->count()}}
-						</td>
-					</tr>
-				</thead>
-			</table>
+		<table class="table table-condensed">
+			<tr>
+				<td>High</td>
+				<td>
+					{{Deal::where('high', true)->where('game_id', $game->id)->count()}}
+				</td>
+			</tr>
+			<tr>
+				<td>Low</td>
+				<td>
+					{{Deal::where('high', false)->where('game_id', $game->id)->count()}}
+				</td>
+			</tr>
+		</table>
 	</div>
 </div>
