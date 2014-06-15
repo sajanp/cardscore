@@ -37,7 +37,8 @@ class DealController extends \BaseController {
 		$rules = [
 			'point_value' => 'required|integer',
 			'acheived' => 'required',
-			'partners' => 'required|array'
+			'partners' => 'required|array',
+			'high' => 'required'
 		];
 
 		$validator = Validator::make(Input::all(), $rules);
