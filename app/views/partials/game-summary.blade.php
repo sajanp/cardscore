@@ -57,4 +57,28 @@
 				</tbody>
 			</table>
 	</div>
+
+	<div class="col-md-6">
+		<h4>High/Low Deals</h4>
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>
+							High
+						</th>
+						<td>
+							{{Deal::where('high', true)->where('game_id', $game->id)->count()}}
+						</td>
+					</tr>
+					<tr>
+						<th>
+							Low
+						</th>
+						<td>
+							{{Deal::where('high', false)->where('game_id', $game->id)->count()}}
+						</td>
+					</tr>
+				</thead>
+			</table>
+	</div>
 </div>
