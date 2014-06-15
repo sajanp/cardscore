@@ -51,6 +51,7 @@
 				</div>
 				<div class="tab-pane" id="summary">
 					<h2>Game Summary</h2>
+					@include('partials.game-summary', ['game' => $game])
 				</div>
 			</div>
 		</div>
