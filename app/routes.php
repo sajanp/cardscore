@@ -8,8 +8,5 @@ Route::group(['before' => 'auth'], function()
 	Route::resource('game', 'GameController');
 	Route::resource('player', 'PlayerController');
 
-	Route::get('/', ['as' => 'home', function()
-	{
-		return View::make('home');
-	}]);
+	Route::get('/', ['as' => 'home', 'uses' => 'HomeController@showHome']);
 });
