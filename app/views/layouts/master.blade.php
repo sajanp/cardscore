@@ -9,15 +9,6 @@
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 		<style>
-			table tr td:last-child, table tr th:last-child {
-			    text-align: right;
-			}
-
-			.label {
-				line-height: 2;
-				font-size: 100%;
-			}
-
 			a:focus, a:active {
 				outline: none;
 			}
