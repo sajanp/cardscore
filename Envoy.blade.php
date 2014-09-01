@@ -1,9 +1,8 @@
-@servers(['production' => "-p 59967 asari.sajan.io"])
+@servers(['production' => "lemp4.noppix.net"])
 
 @task('deploy', ['on' => 'production'])
 	export APP_ENV=production
-	cd www/cardscore.in
+	cd cardscore.in
 	git pull
-	composer update
 	php artisan migrate
 @endtask
