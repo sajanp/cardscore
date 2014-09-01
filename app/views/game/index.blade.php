@@ -7,7 +7,6 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<td>#</td>
 					<th>Started</th>
 					<th>Player Count</th>
 					<th>Deal Count</th>
@@ -37,7 +36,6 @@
 					});
 				?>
 					<tr>
-						<td>{{$game->id}}</td>
 						<td>{{HTML::linkRoute('game.show', $game->created_at->toDayDateTimeString(), $game->id)}}</td>
 						<td>{{$game->players->count()}}</td>
 						<td>{{$game->deals->count()}}</td>
