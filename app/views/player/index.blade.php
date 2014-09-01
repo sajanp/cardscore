@@ -8,7 +8,6 @@
 			<tr>
 				<th>Name</th>
 				<th>Date Added</th>
-				<th>Edit</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -16,7 +15,6 @@
 				<tr>
 					<td>{{$player->name}}</td>
 					<td>{{$player->created_at}}</td>
-					<td>{{HTML::linkRoute('player.edit', 'Edit', $player->id, ['class' => 'btn btn-xs btn-warning'])}}</td>
 				</tr>
 			@endforeach
 		</tbody>
