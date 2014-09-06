@@ -99,7 +99,7 @@
 					@foreach($scores as $score)
 						<tr>
 							<td>{{$score['name']}}</td>
-							<td>{{number_format($score['score'])}}</td>
+							<td>{{number_format($score['score'])}} - {{$score['games']}} Games</td>
 						</tr>
 					@endforeach
 				</tbody>
