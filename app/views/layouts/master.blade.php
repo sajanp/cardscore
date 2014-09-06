@@ -38,7 +38,6 @@
 			</div>
 		</nav>
 		<div class="container">
-			<p class="alert alert-warning">Everything should work, but may not appear properly as there is some work in progress.</p>
 			@include('partials.alerts')
 			@yield('body')
 		</div>
