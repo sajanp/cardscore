@@ -12,7 +12,7 @@
 		<tbody>
 			@foreach($players as $player)
 				<tr>
-					<td>{{$player->name}}</td>
+					<td>{{HTML::linkRoute('player.show', $player->name, $player->id)}}</td>
 				</tr>
 			@endforeach
 		</tbody>
