@@ -2,7 +2,7 @@
 
 @section('body')
 	<h2>Global Stats</h2>
-	
+
 	<h3>Totals and Aggregates</h3>
 
 	<div class="row">
@@ -67,7 +67,7 @@
 	<h3>Player Stats</h3>
 
 	<div class="row">
-		<div class="col-md-3">
+		<div class="col-md-5">
 			<h4>All Time Points</h4>
 
 			<?php
@@ -79,7 +79,7 @@
 					$scores[$player->id]['name'] = $player->name;
 					$scores[$player->id]['score'] = $player->scores()->sum('amount');
 					$scores[$player->id]['games'] = $player->games()->count();
-				}	
+				}
 			}
 
 			function cmp($a, $b) {
