@@ -93,4 +93,11 @@ class PlayerController extends \BaseController {
 
 		return Redirect::route('player.edit', $id)->withErrors($validator->messages());
 	}
+
+	public function show($id)
+	{
+		$player = Player::find($id);
+
+		return View::make('player.show', compact('player'));
+	}
 }
