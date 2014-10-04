@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('body')
+
+	<p class="alert alert-info">Player stats are now available from the players page.</p>
+
 	<h1>Login</h1>
 	<p>Please login below to continue.</p>
 
