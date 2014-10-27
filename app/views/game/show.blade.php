@@ -26,10 +26,10 @@
 					<?php $i = $game->deals()->count(); ?>
 					@foreach($game->deals()->orderBy('created_at', 'desc')->get() as $deal)
 						<div class="row">
-							<div class="col-md-3 col-xs-3">
+							<div class="col-md-2 col-xs-2">
 								<img src="{{asset('img/profiles/' . $deal->scores()->where('caller', true)->first()->player->id . '.jpg')}}" alt="profile" class="img-responsive img-rounded" style="margin:5px">
 							</div>
-							<div class="col-md-9 col-xs-9">
+							<div class="col-md-10 col-xs-10">
 								<h4>{{$deal->scores()->where('caller', true)->first()->player->name}}</h4>
 								<span class="label {{$deal->acheived ? 'label-success' : 'label-danger'}}">{{$deal->trump->name}} - {{$deal->high ? 'High' : 'Low'}} - {{$deal->point_value}}</span>
 								<p>
@@ -46,8 +46,8 @@
 							</div>
 						</div>
 						<hr>
-						<?php $i--; ?>			
-					@endforeach					
+						<?php $i--; ?>
+					@endforeach
 				</div>
 				<div class="tab-pane" id="summary">
 					<h2>Game Summary</h2>
@@ -67,7 +67,7 @@
 			var c = confirm("Click OK To Confirm Deleting That Deal.");
 			return c;
 		});
-		
+
 		setTimeout(function(){
 			location = ''
 		}, 60000);
