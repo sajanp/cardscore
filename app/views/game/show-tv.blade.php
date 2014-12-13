@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Bootstrap 101 Template</title>
+		<title>Rook Scoring System</title>
 
 		<!-- Bootstrap -->
 		<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.0/lumen/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +17,8 @@
 		<![endif]-->
 
 		<style type="text/css">
-		body {font-size: 24px}
+			body {font-size: 24px}
+			.caller-name {margin: 0}
 		</style>
 	</head>
 	<body>
@@ -34,7 +35,7 @@
 									<img src="{{asset('img/profiles/' . $deal->scores()->where('caller', true)->first()->player->id . '.jpg')}}" alt="profile" class="img-responsive img-rounded" style="margin:5px">
 								</div>
 								<div class="col-md-10 col-xs-10">
-									<h3>{{$deal->scores()->where('caller', true)->first()->player->name}}</h3>
+									<h3 class="caller-name">{{$deal->scores()->where('caller', true)->first()->player->name}}</h3 class="caller-name">
 									<span class="label {{$deal->acheived ? 'label-success' : 'label-danger'}}">{{$deal->trump->name}} - {{$deal->high ? 'High' : 'Low'}} - {{$deal->point_value}}</span>
 									<p>
 										@foreach($deal->scores()->where('partner', true)->get() as $partner)
