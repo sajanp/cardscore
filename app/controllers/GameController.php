@@ -53,6 +53,11 @@ class GameController extends \BaseController {
 	{
 		$game = Game::find($id);
 
+		if (Input::get('tv', false))
+		{
+			return View::make('game.show-tv', compact('game'));
+		}
+
 		return View::make('game.show', compact('game'));
 	}
 }

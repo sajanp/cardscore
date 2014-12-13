@@ -10,7 +10,7 @@ arsort($scores);
 $i = 1;
 ?>
 
-<table class="table table-condensed table-hover">
+<table class="table table-condensed table-hover table-striped">
 	@foreach($scores as $player => $score)
 		<tr>
 			<td>#{{$i}} {{$player}}</td>
