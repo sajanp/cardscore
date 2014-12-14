@@ -8,13 +8,14 @@
 		@if($game->created_at->gt(\Carbon\Carbon::now()->subHours(16)))
 			{{HTML::linkRoute('game.deal.create', 'Deal Into This Game', $game->id, ['class' => 'pull-right btn btn-primary pull-right hidden-sm hidden-xs'])}}
 		@endif
+		<a href="{{URL::route('game.show', ['id' => $game->id, 'tv' => 1])}}" class="btn btn-primary pull-right">Big TV Mode <i class="fa fa-arrows-alt"></i></a>
 	</p>
 
 	<div class="row">
-		<div class="col-md-3 visible-sm visible-xs">
+		<div class="col-md-4 visible-sm visible-xs">
 			@include('partials.scoreboard')
 		</div>
-		<div class="col-md-9">
+		<div class="col-md-8">
 			<ul class="nav nav-tabs">
 				<li class="active"><a href="#deals" data-toggle="tab">Deal History</a></li>
 				<li><a href="#summary" data-toggle="tab">Summary</a></li>
@@ -55,7 +56,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3 hidden-sm hidden-xs">
+		<div class="col-md-4 hidden-sm hidden-xs">
 			@include('partials.scoreboard')
 		</div>
 	</div>
