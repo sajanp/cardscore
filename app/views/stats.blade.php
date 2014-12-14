@@ -7,7 +7,7 @@
 
 	<div class="row">
 		<div class="col-md-3">
-			<table class="table table-condensed">
+			<table class="table table-condensed table-hover table-striped">
 				<tbody>
 					<tr>
 						<td>Total Games Played</td>
@@ -20,8 +20,8 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="col-md-3">
-			<table class="table table-condensed">
+		<div class="col-md-5">
+			<table class="table table-condensed table-hover table-striped">
 				<tbody>
 					<tr>
 						<td>Deals Won By Caller</td>
@@ -41,9 +41,9 @@
 	<h3>Trump Stats</h3>
 
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<h4>Deals Per Trump</h4>
-			<table class="table table-condensed">
+			<table class="table table-condensed table-hover table-striped">
 				<thead>
 					<tr>
 						<th>Trump</th>
@@ -94,7 +94,7 @@
 			uasort($scores, 'cmp');
 			?>
 
-			<table class="table table-condensed">
+			<table class="table table-condensed table-hover table-striped">
 				<tbody>
 					@foreach($scores as $score)
 						<tr>
@@ -133,7 +133,7 @@
 
 			?>
 
-			<table class="table table-condensed">
+			<table class="table table-condensed table-hover table-striped">
 				<tbody>
 					@foreach($deals as $player => $deals)
 						<tr>
