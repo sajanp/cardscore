@@ -71,6 +71,6 @@
 
 		setTimeout(function(){
 			location = ''
-		}, 10000);
+		}, 60000);
 	</script>
 @stop
