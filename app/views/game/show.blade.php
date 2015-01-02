@@ -8,7 +8,6 @@
 		@if($game->created_at->gt(\Carbon\Carbon::now()->subHours(16)))
 			{{HTML::linkRoute('game.deal.create', 'Deal Into This Game', $game->id, ['class' => 'pull-right btn btn-primary pull-right hidden-sm hidden-xs'])}}
 		@endif
-		<a href="{{URL::route('game.show', ['id' => $game->id, 'tv' => 1])}}" class="btn btn-primary pull-right">Big TV Mode <i class="fa fa-arrows-alt"></i></a>
 	</p>
 
 	<div class="row">
