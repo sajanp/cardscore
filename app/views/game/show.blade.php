@@ -64,7 +64,7 @@
 							<th>Note</th>
 						</thead>
 						<tbody>
-							@foreach($game->adjustments as $adjustment)
+							@foreach($game->adjustments()->orderBy('created_at', 'desc')->get() as $adjustment)
 								@if($adjustment->amount > 0)
 									<tr class="success">
 								@else
