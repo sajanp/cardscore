@@ -18,7 +18,7 @@
                     </tr>
                     <tr>
                         <td>All Time Points</td>
-                        <td>{{$player->scores()->sum('amount')}}</td>
+                        <td>{{$player->scores()->sum('amount') + $player->adjustments()->sum('amount')}}</td>
                     </tr>
                     <tr>
                         <td><i class="fa fa-chevron-right"></i> As Caller</td>

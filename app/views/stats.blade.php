@@ -77,7 +77,7 @@
 				if ($player->scores->count())
 				{
 					$scores[$player->id]['name'] = $player->name;
-					$scores[$player->id]['score'] = $player->scores()->sum('amount');
+					$scores[$player->id]['score'] = $player->scores()->sum('amount') + $player->adjustments->sum('amount');
 					$scores[$player->id]['games'] = $player->games()->count();
 				}
 			}

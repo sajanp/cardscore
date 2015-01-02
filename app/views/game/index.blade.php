@@ -18,7 +18,7 @@
 				<?php
 
 					foreach ($game->players->all() as $player) {
-						$scores[$player->name] = $player->scores()->where('game_id', $game->id)->sum('amount');
+						$scores[$player->name] = $player->scores()->where('game_id', $game->id)->sum('amount') + $player->adjustments()->where('game_id', $game->id)->sum('amount');
 					}
 
 					arsort($scores);
