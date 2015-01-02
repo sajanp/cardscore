@@ -2,7 +2,7 @@
 <?php
 
 foreach ($game->players->all() as $player) {
-	$scores[$player->name] = $player->scores()->where('game_id', $game->id)->sum('amount');
+	$scores[$player->name] = $player->scores()->where('game_id', $game->id)->sum('amount') + $player->adjustments()->where('game_id', $game->id)->sum('amount');
 }
 
 arsort($scores);
@@ -20,3 +20,4 @@ $i = 1;
 		<?php $i++; ?>
 	@endforeach
 </table>
+{{HTML::linkRoute('game.adjustment.create', 'Make Scoring Adjustment', $game->id, ['class' => 'pull-right btn btn-xs btn-warning pull-right hidden-sm hidden-xs'])}}

@@ -14,4 +14,9 @@ class Player extends Eloquent {
 		return $this->hasMany('Score');
 	}
 
+	public function adjustments()
+	{
+		return $this->hasMany('Adjustment');
+	}
+
 }

@@ -4,6 +4,7 @@ Route::resource('session', 'SessionController');
 
 Route::group(['before' => 'auth'], function()
 {
+	Route::resource('game.adjustment', 'GameAdjustmentController');
 	Route::resource('game.deal', 'DealController');
 	Route::resource('game', 'GameController');
 	Route::resource('player', 'PlayerController');
