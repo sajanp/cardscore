@@ -20,4 +20,7 @@ $i = 1;
 		<?php $i++; ?>
 	@endforeach
 </table>
-{{HTML::linkRoute('game.adjustment.create', 'Make Scoring Adjustment', $game->id, ['class' => 'pull-right btn btn-xs btn-warning pull-right hidden-sm hidden-xs'])}}
+
+@if($game->created_at->gt(\Carbon\Carbon::now()->subHours(16)))
+	{{HTML::linkRoute('game.adjustment.create', 'Make Scoring Adjustment', $game->id, ['class' => 'pull-right btn btn-xs btn-warning pull-right hidden-sm hidden-xs'])}}
+@endif
