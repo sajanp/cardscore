@@ -18,6 +18,7 @@
 			<ul class="nav nav-tabs">
 				<li class="active"><a href="#deals" data-toggle="tab">Deal History</a></li>
 				<li><a href="#summary" data-toggle="tab">Summary</a></li>
+				<li><a href="#adjustments" data-toggle="tab">Adjustments</a></li>
 			</ul>
 
 			<div class="tab-content">
@@ -52,6 +53,31 @@
 				<div class="tab-pane" id="summary">
 					<h2>Game Summary</h2>
 					@include('partials.game-summary', ['game' => $game])
+				</div>
+				<div class="tab-pane" id="adjustments">
+					<h2>Scoring Adjustments</h2>
+					<table class="table table-condensed table-hover table-bordered">
+						<thead>
+							<th>Time</th>
+							<th>Player</th>
+							<th>Amount</th>
+							<th>Note</th>
+						</thead>
+						<tbody>
+							@foreach($game->adjustments as $adjustment)
+								@if($adjustment->amount > 0)
+									<tr class="success">
+								@else
+									<tr class="danger">
+								@endif
+										<td>{{$adjustment->created_at->format('h:i A')}}</td>
+										<td>{{$adjustment->player->name}}</td>
+										<td>{{$adjustment->amount}}</td>
+										<td>{{$adjustment->note}}</td>
+								</tr>
+							@endforeach
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
