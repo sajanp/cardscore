@@ -22,7 +22,7 @@ class GameController extends \BaseController {
 	 */
 	public function create()
 	{
-		$players = Player::all();
+		$players = Player::where('active', true)->get();
 
 		return View::make('game.create', compact('players'));
 	}

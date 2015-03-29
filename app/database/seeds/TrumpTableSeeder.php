@@ -9,6 +9,7 @@ class TrumpTableSeeder extends Seeder {
 	 */
 	public function run()
 	{
+		Eloquent::unguard();
 
 		Trump::create([
 			'name' => 'Spades',
