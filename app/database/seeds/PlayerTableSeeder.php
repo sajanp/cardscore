@@ -9,9 +9,10 @@ class PlayerTableSeeder extends Seeder {
 	 */
 	public function run()
 	{
+		Eloquent::unguard();
 
 		Player::create([
-			'name' => 'Akshay Mahadevia ',
+			'name' => 'Akshay Mahadevia',
 		]);
 
 		Player::create([
