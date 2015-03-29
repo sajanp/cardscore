@@ -15,9 +15,7 @@
 				<tr>
 					<td>
 						{{HTML::linkRoute('player.show', $player->name, $player->id)}} 
-						@if($player->active)
-							<span class="label label-success">Active</span>
-						@else
+						@if(!$player->active)
 							<span class="label label-danger">Disabled</span>
 						@endif
 					</td>

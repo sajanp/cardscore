@@ -101,4 +101,13 @@ class PlayerController extends \BaseController {
 
 		return View::make('player.show', compact('player'));
 	}
+
+	public function destroy($id)
+	{
+		$player = Player::find($id);
+
+		$player->delete();
+
+		return Redirect::route('player.index')->withSuccessMessage('Player Deleted Successfully');
+	}
 }

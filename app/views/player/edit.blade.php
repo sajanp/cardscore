@@ -23,6 +23,14 @@
 			{{Form::submit('Update Player', ['class' => 'btn btn-success btn-lg'])}}
 		</div>
 
+		@if($player->games->count() == 0)
+			{{Form::open(['method' => 'delete', 'route' => ['player.destroy', $player->id]])}}
+				<div class="form-group">
+					{{Form::submit('Delete Player', ['class' => 'btn btn-danger btn-xs pull-right'])}}
+				</div>
+			{{Form::close()}}
+		@endif
+
 
 		@foreach($errors->all() as $error)
 			<p class="alert alert-danger">{{$error}}</p>
