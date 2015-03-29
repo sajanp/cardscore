@@ -86,6 +86,7 @@ class PlayerController extends \BaseController {
 		if ($validator->passes())
 		{
 			$player->name = ucwords($input['name']);
+			$player->active = array_get($input, 'active', false);
 			$player->save();
 
 			return Redirect::route('player.index')->withSuccessMessage('Player Updated Successfully');

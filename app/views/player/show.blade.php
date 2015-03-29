@@ -34,6 +34,7 @@
                     </tr>
                 </table>
             </div>
+            {{HTML::linkRoute('player.edit', 'Edit Player', $player->id, ['class' => 'btn btn-warning'])}}
         </div>
     </div>
 @stop

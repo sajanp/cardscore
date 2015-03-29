@@ -9,9 +9,18 @@
 			{{Form::text('name', null, ['class' => 'form-control input-lg'])}}
 			<span class="help-block">Please enter first and last name.</span>
 		</div>
+
+		<div class="form-group">
+			<div class="checkbox">
+				<label for="active">
+					{{Form::checkbox('active', 1, null)}}
+					Active Player
+				</label>
+			</div>
+		</div>
 		
 		<div class="form-group">
-			{{Form::submit('Add Player', ['class' => 'btn btn-success btn-lg'])}}
+			{{Form::submit('Update Player', ['class' => 'btn btn-success btn-lg'])}}
 		</div>
 
 
