@@ -7,20 +7,21 @@
 		<thead>
 			<tr>
 				<th>Name</th>
-				<th>Active</th>
+				<th>Games Played</th>
 			</tr>
 		</thead>
 		<tbody>
 			@foreach($players as $player)
 				<tr>
-					<td>{{HTML::linkRoute('player.show', $player->name, $player->id)}}</td>
 					<td>
+						{{HTML::linkRoute('player.show', $player->name, $player->id)}} 
 						@if($player->active)
 							<span class="label label-success">Active</span>
 						@else
 							<span class="label label-danger">Disabled</span>
 						@endif
 					</td>
+					<td>{{$player->games->count()}}</td>
 				</tr>
 			@endforeach
 		</tbody>

@@ -9,7 +9,7 @@ class PlayerController extends \BaseController {
 	 */
 	public function index()
 	{
-		$players = Player::orderBy('name')->get();
+		$players = Player::orderBy('active', 'desc')->orderBy('name')->get();
 
 		return View::make('player.index', compact('players'));
 	}
