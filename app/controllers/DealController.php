@@ -38,7 +38,9 @@ class DealController extends \BaseController {
 			'point_value' => 'required|integer',
 			'acheived' => 'required',
 			'partners' => 'required|array',
-			'high' => 'required'
+			'high' => 'required',
+			'caller_id' => 'required|integer|exists:players,id',
+			'trump_id' => 'required|integer|exists:trumps,id'
 		];
 
 		$validator = Validator::make(Input::all(), $rules);

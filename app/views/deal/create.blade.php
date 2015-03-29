@@ -16,13 +16,13 @@
 				<div class="col-md-6">
 					<div class="form-group">
 						{{Form::label('caller_id', 'Calling Player')}}
-						{{Form::select('caller_id', $game->players->lists('name', 'id'), null, ['class' => 'form-control input-lg'])}}
+						{{Form::select('caller_id', ['default' => 'Select Player'] + $game->players->lists('name', 'id'), null, ['class' => 'form-control input-lg'])}}
 					</div>
 				</div>
 				<div class="col-md-3">
 					<div class="form-group">
 						{{Form::label('trump_id', 'Trump Suit')}}
-						{{Form::select('trump_id', Trump::lists('name', 'id'), null, ['class' => 'form-control input-lg'])}}
+						{{Form::select('trump_id', ['default' => 'Select Trump'] + Trump::lists('name', 'id'), null, ['class' => 'form-control input-lg'])}}
 					</div>
 				</div>
 				<div class="col-md-3">
